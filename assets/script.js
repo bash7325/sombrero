@@ -24,18 +24,30 @@ function getWeather() {
       if (temp > 50 && clouds < 50 && uvIndex > 2) {
         //add h1 that says it's sombrero weather
         let sombreroWeather = document.createElement("h1");
-        sombreroWeather.innerHTML = "Sombrero Weather";
+        sombreroWeather.innerHTML = "It's Sombrero Weather!";
         sombreroWeather.setAttribute("id", "sombrero-weather");
         document.body.appendChild(sombreroWeather);
+        //append image of a sombrero
+        let sombreroImage = document.createElement("img");
+        sombreroImage.setAttribute("src", "./assets/images/sombrero-image.jpg");
+        sombreroImage.setAttribute("id", "sombrero-image");
+        document.body.appendChild(sombreroImage);
+        //play audio of hat dance
+        playAudio();
       }else
         {
             //add h1 that says it's not sombrero weather
             let notSombreroWeather = document.createElement("h1");
-            notSombreroWeather.innerHTML = "Not Sombrero Weather";
+            notSombreroWeather.innerHTML = "No, It's Not Sombrero Weather";
             notSombreroWeather.setAttribute("id", "not-sombrero-weather");
-            document.body.appendChild(notSombreroWeather);
+            document.body.appendChild(notSombreroWeather);           
         }
     });
+}
+
+//mexican hat dance play audio
+function playAudio() {
+  hatDance.play();
 }
 //on click, get weather
 sombrero.addEventListener("click", getWeather);
