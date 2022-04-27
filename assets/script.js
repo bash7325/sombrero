@@ -26,16 +26,16 @@ function getWeather() {
       let clouds = data.current.clouds;
       let uvIndex = data.current.uvi;
 
-      if (temp > 50 && clouds < 100 && uvIndex > 0) {
+      if (temp > 50 && clouds < 100 && uvIndex >= 0) {
         //add h1 to the sombrero-container that says it's sombrero weather
         sombreroWeather.setAttribute("style", "text-align: center");
         sombreroWeather.innerHTML = "It's Sombrero Weather!";
         sombreroWeather.classList.add("sombrero-text");
         sombreroContainer.appendChild(sombreroWeather);
-        //add sombrero image
+        //add sombrero image to the sombrero-container
         sombreroImage.setAttribute("src", "./assets/images/sombrero-image.jpg");
         sombreroImage.setAttribute("id", "sombrero-image");
-        document.body.appendChild(sombreroImage);
+        sombreroContainer.appendChild(sombreroImage);
         //play audio of hat dance
         playAudio();
       } else {
