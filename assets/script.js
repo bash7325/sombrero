@@ -5,6 +5,7 @@ let hatDance = document.getElementById("myAudio");
 let sombrero = document.getElementById("sombrero-button");
 let sombreroContainer = document.getElementById("sombrero-container");
 let sombreroImage = document.createElement("img");
+let notSombreroImage = document.createElement("img");
 let sombreroWeather = document.createElement("h1");
 let notSombreroWeather = document.createElement("h1");
 
@@ -42,10 +43,15 @@ function getWeather() {
         //add h1 that says it's not sombrero weather
         notSombreroWeather.setAttribute("style", "text-align: center");
         notSombreroWeather.innerHTML = "No, It's Not Sombrero Weather";
+        //set image on the sombrero-container to be a sad face
+        notSombreroImage.setAttribute("src", "./assets/images/sombrero-sad.jpg");
+        notSombreroImage.setAttribute("id", "sombrero-image");
         sombreroContainer.appendChild(notSombreroWeather);
+        sombreroContainer.appendChild(notSombreroImage);
       }
     });
 }
+
 
 //mexican hat dance play audio
 function playAudio() {
