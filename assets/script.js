@@ -1,6 +1,4 @@
 let apiKey = "20d3501773a839af3857d2b0374101f6";
-let lat = "40.76";
-let lon = "-111.89";
 let hatDance = document.getElementById("myAudio");
 let sombrero = document.getElementById("sombrero-button");
 let sombreroContainer = document.getElementById("sombrero-container");
@@ -8,6 +6,23 @@ let sombreroImage = document.createElement("img");
 let notSombreroImage = document.createElement("img");
 let sombreroWeather = document.createElement("h1");
 let notSombreroWeather = document.createElement("h1");
+let lat;
+let lon;
+
+//get geolocation
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    console.log("Geolocation is not supported by this browser.")
+  }
+}
+
+function showPosition(position) {
+  lat = position.coords.latitude;
+  lon = position.coords.longitude;
+  getWeather();
+}
 
 //get weather from openweathermap.org
 function getWeather() {
@@ -27,7 +42,7 @@ function getWeather() {
       let clouds = data.current.clouds;
       let uvIndex = data.current.uvi;
 
-      if (temp >= 65 && clouds <= 50 && uvIndex >=3 ) {
+      if (temp >= 55 && clouds <= 50 && uvIndex >=3 ) {
         //add h1 to the sombrero-container that says it's sombrero weather
         sombreroWeather.setAttribute("style", "text-align: center");
         sombreroWeather.innerHTML = "It's Sombrero Weather!";
@@ -58,4 +73,4 @@ function playAudio() {
   hatDance.play();
 }
 //on click, get weather
-sombrero.addEventListener("click", getWeather);
+sombrero.addEventListener("click", getLocation);
