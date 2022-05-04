@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/images/sombrero-favicon.png">
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <link rel="stylesheet" href="./assets/style.css">
-    <title>Document</title>
+    <title>The Sombrero App</title>
 </head>
 
 <body>
     <nav class="navbar">
         <ul>
-            <li><strong>Is It Sombrero Weather?</strong></li>
+            <li><strong>Is It Sombrero Weather?</strong><img id="sunshine" src="./assets/images/sunshine.png"
+                    alt="sunshine" class="sunshine"></li>
         </ul>
         <ul>
-            <button class="contrast" data-target="modal-example" onClick="toggleModal(event)">
+            <button class="about-btn" data-target="modal-example" onClick="toggleModal(event)">
                 About
             </button>
 
@@ -29,10 +31,10 @@
                     <h3>The Sombrero App</h3>
                     <p>
                         Benny loves the sunshine, but his neck and head do not. This app was made so Benny will know if
-                        he needs to wear his sombrero to protect his delicate skin from the sun.
+                        he needs to wear his sombrero to protect his delicate skin from the sun. Even if you aren't
+                        Benny, you can use this app to determine if you should take measures to protect yourself from
+                        harmful UV rays.
                     </p>
-                    <footer>
-                    </footer>
                 </article>
             </dialog>
         </ul>

@@ -1,3 +1,8 @@
+:root {
+    --primary: #f4511e !important;
+    --primary-hover: #f57c00 !important;
+  }
+
 .navbar {
     padding-left: 10px;
     padding-right: 10px;
@@ -10,4 +15,19 @@
 
 .button-container {
     padding-bottom: inherit;
+}
+
+.about-btn {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+#sunshine {
+    width: 10%;
+    padding-left: inherit;
+}
+
+#sombrero-image {
+    width: 70%;
+    margin: auto;
 }
