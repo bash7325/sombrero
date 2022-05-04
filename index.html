@@ -15,8 +15,26 @@
         <ul>
             <li><strong>Is It Sombrero Weather?</strong></li>
         </ul>
-        <ul>    
-            <li><a href="about.html">About</a></li>
+        <ul>
+            <button class="contrast" data-target="modal-example" onClick="toggleModal(event)">
+                About
+            </button>
+
+            <!-- Modal -->
+            <dialog id="modal-example">
+                <article>
+                    <a href="#close" aria-label="Close" class="close" data-target="modal-example"
+                        onClick="toggleModal(event)">
+                    </a>
+                    <h3>The Sombrero App</h3>
+                    <p>
+                        Benny loves the sunshine, but his neck and head do not. This app was made so Benny will know if
+                        he needs to wear his sombrero to protect his delicate skin from the sun.
+                    </p>
+                    <footer>
+                    </footer>
+                </article>
+            </dialog>
         </ul>
     </nav>
     <main class="container">
