@@ -44,8 +44,10 @@ function getWeather() {
       let temp = data.current.temp;
       let clouds = data.current.clouds;
       let uvIndex = data.current.uvi;
+      let today = new Date();
+      let date = today.getMonth() + 1 + "/" + today.getDate();
 
-      if (temp >= 50 && clouds <= 60 && uvIndex >= 3 ) {
+      if (temp >= 50 && clouds <= 60 && uvIndex >= 3 || date === "5/5") {
         //add h1 to the sombrero-container that says it's sombrero weather
         sombreroWeather.setAttribute("style", "text-align: center");
         sombreroWeather.innerHTML = "It's Sombrero Weather!";
