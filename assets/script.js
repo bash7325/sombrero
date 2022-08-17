@@ -83,6 +83,8 @@ function getWeather() {
     }
     weatherButton.addEventListener("click", function() {
       butWhy(temp, clouds, uvIndex, date);
+      weatherButton.disabled = true;
+    sombrero.disabled = true;
     });
     }
   );
