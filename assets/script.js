@@ -88,13 +88,10 @@ function getWeather() {
   );
 }
   
-
-
 //after getweather() unhide hide class
 function unhide() {
   hide.classList.remove("hide");
 }
-
 
 //mexican hat dance play audio
 function playAudio() {
@@ -107,18 +104,13 @@ function playAudio() {
 //on click, get weather
 sombrero.addEventListener("click", getLocation);
 
-//on click of weather button unhide weather-container
-
-
+//but why function
 function butWhy(temp, clouds, uvIndex, date) {
   weatherContainer.classList.remove("hide");
   //create element to hold weather
   let weather = document.createElement("h1");
   weather.setAttribute("style", "text-align: center");
   weather.classList.add("weather-text");
-  //create fire emoji html code
-  
-  //create snowflake emoji html code
   if(temp >= 50 && clouds <= 70 && uvIndex >= 3 || date === "5/5") {
   weather.innerText = 'Because it is ' + fire + temp + ' degrees outside, there is ' + clouds + '% cloud coverage, and the UV index is ' + uvIndex + '. Now put on your sombrero and dance the hat dance!';
   weatherContainer.appendChild(weather);
@@ -128,11 +120,6 @@ function butWhy(temp, clouds, uvIndex, date) {
   }
   
 }
-
-
-
-
-
 
 //Modal
 // Config
