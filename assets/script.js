@@ -7,6 +7,9 @@ let sombreroImage = document.createElement("img");
 let notSombreroImage = document.createElement("img");
 let sombreroWeather = document.createElement("h1");
 let notSombreroWeather = document.createElement("h1");
+let hide = document.querySelector('.hide');
+let weatherButton = document.getElementById('weather-button');
+let weatherContainer = document.getElementById("weather-container");
 let lat;
 let lon;
 let hatDanceSound = false;
@@ -46,36 +49,50 @@ function getWeather() {
       let uvIndex = data.current.uvi;
       let today = new Date();
       let date = today.getMonth() + 1 + "/" + today.getDate();
-
-      if (temp >= 50 && clouds <= 70 && uvIndex >= 3 || date === "5/5") {
-        //add h1 to the sombrero-container that says it's sombrero weather
-        sombreroWeather.setAttribute("style", "text-align: center");
-        sombreroWeather.innerHTML = "It's Sombrero Weather!";
-        sombreroWeather.classList.add("sombrero-text");
-        sombreroContainer.appendChild(sombreroWeather);
-        //add sombrero image to the sombrero-container
-        sombreroImage.setAttribute("src", "./assets/images/sombrero-image.jpg");
-        sombreroImage.setAttribute("id", "sombrero-image");
-        sombreroImage.setAttribute("class", "grid");
-        sombreroContainer.appendChild(sombreroImage);
-        //play audio of hat dance
-        hatDanceSound = true;
-        playAudio();
-      } else {
-        //add h1 that says it's not sombrero weather
-        notSombreroWeather.setAttribute("style", "text-align: center");
-        notSombreroWeather.innerHTML = "No, It's Not Sombrero Weather";
-        //set image on the sombrero-container to be a sad face
-        notSombreroImage.setAttribute("src", "./assets/images/sombrero-sad.jpg");
-        notSombreroImage.setAttribute("id", "sombrero-image");
-        notSombreroImage.setAttribute("class", "grid");
-        sombreroContainer.appendChild(notSombreroWeather);
-        sombreroContainer.appendChild(notSombreroImage);
-        //play audio of sad trombone
-        SadTromboneSound = true;
-        playAudio();
-      }
+    
+  
+    if (temp >= 50 && clouds <= 70 && uvIndex >= 3 || date === "5/5") {
+      //add h1 to the sombrero-container that says it's sombrero weather
+      sombreroWeather.setAttribute("style", "text-align: center");
+      sombreroWeather.innerHTML = "It's Sombrero Weather!";
+      sombreroWeather.classList.add("sombrero-text");
+      sombreroContainer.appendChild(sombreroWeather);
+      //add sombrero image to the sombrero-container
+      sombreroImage.setAttribute("src", "./assets/images/sombrero-image.jpg");
+      sombreroImage.setAttribute("id", "sombrero-image");
+      sombreroImage.setAttribute("class", "grid");
+      sombreroContainer.appendChild(sombreroImage);
+      //play audio of hat dance
+      hatDanceSound = true;
+      playAudio();
+      unhide();
+    } else {
+      //add h1 that says it's not sombrero weather
+      notSombreroWeather.setAttribute("style", "text-align: center");
+      notSombreroWeather.innerHTML = "No, It's Not Sombrero Weather";
+      //set image on the sombrero-container to be a sad face
+      notSombreroImage.setAttribute("src", "./assets/images/sombrero-sad.jpg");
+      notSombreroImage.setAttribute("id", "sombrero-image");
+      notSombreroImage.setAttribute("class", "grid");
+      sombreroContainer.appendChild(notSombreroWeather);
+      sombreroContainer.appendChild(notSombreroImage);
+      //play audio of sad trombone
+      SadTromboneSound = true;
+      playAudio();
+      unhide();
+    }
+    weatherButton.addEventListener("click", function() {
+      butWhy(temp, clouds, uvIndex, date);
     });
+    }
+  );
+}
+  
+
+
+//after getweather() unhide hide class
+function unhide() {
+  hide.classList.remove("hide");
 }
 
 
@@ -89,6 +106,32 @@ function playAudio() {
 }
 //on click, get weather
 sombrero.addEventListener("click", getLocation);
+
+//on click of weather button unhide weather-container
+
+
+function butWhy(temp, clouds, uvIndex, date) {
+  weatherContainer.classList.remove("hide");
+  //create element to hold weather
+  let weather = document.createElement("h1");
+  weather.setAttribute("style", "text-align: center");
+  weather.classList.add("weather-text");
+  //create fire emoji html code
+  
+  //create snowflake emoji html code
+  if(temp >= 50 && clouds <= 70 && uvIndex >= 3 || date === "5/5") {
+  weather.innerText = 'Because it is ' + fire + temp + ' degrees outside, there is ' + clouds + '% cloud coverage, and the UV index is ' + uvIndex + '. Now put on your sombrero and dance the hat dance!';
+  weatherContainer.appendChild(weather);
+  } else {
+    weather.innerHTML = 'Because it is ' + temp + ' degrees outside, there is ' + clouds + '% cloud coverage, and the UV index is ' + uvIndex + '. Sorry Benny...';
+    weatherContainer.appendChild(weather);
+  }
+  
+}
+
+
+
+
 
 
 //Modal
@@ -180,3 +223,4 @@ const getScrollbarWidth = () => {
 const isScrollbarVisible = () => {
   return document.body.scrollHeight > screen.height;
 }
+
