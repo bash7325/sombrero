@@ -66,6 +66,7 @@ function getWeather() {
       hatDanceSound = true;
       playAudio();
       unhide();
+      sombrero.disabled = true;
     } else {
       //add h1 that says it's not sombrero weather
       notSombreroWeather.setAttribute("style", "text-align: center");
@@ -80,11 +81,12 @@ function getWeather() {
       SadTromboneSound = true;
       playAudio();
       unhide();
+      sombrero.disabled = true;
     }
     weatherButton.addEventListener("click", function() {
       butWhy(temp, clouds, uvIndex, date);
       weatherButton.disabled = true;
-    sombrero.disabled = true;
+    
     });
     }
   );
