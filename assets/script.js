@@ -116,7 +116,7 @@ function butWhy(temp, clouds, uvIndex, date) {
   weather.setAttribute("style", "text-align: center");
   weather.classList.add("weather-text");
   if(temp >= 50 && clouds <= 70 && uvIndex >= 3 || date === "5/5") {
-  weather.innerText = 'Because it is ' + fire + temp + ' degrees outside, there is ' + clouds + '% cloud coverage, and the UV index is ' + uvIndex + '. Now put on your sombrero and dance the hat dance!';
+  weather.innerText = 'Because it is ' + temp + ' degrees outside, there is ' + clouds + '% cloud coverage, and the UV index is ' + uvIndex + '. Now put on your sombrero and dance the hat dance!';
   weatherContainer.appendChild(weather);
   } else {
     weather.innerHTML = 'Because it is ' + temp + ' degrees outside, there is ' + clouds + '% cloud coverage, and the UV index is ' + uvIndex + '. Sorry Benny...';
